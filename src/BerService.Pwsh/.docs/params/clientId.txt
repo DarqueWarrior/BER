@@ -1,0 +1,9 @@
+### -clientId
+
+This is used to get a JWT token. The BER server when deployed to Docker or App Service as a Web App requires authentication using JWT. The clientId is used to make sure the client is allowed to connect to the server.
+
+```yaml
+Type: String
+Required: True
+Parameter Sets: ByJWT
+```

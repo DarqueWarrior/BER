@@ -1,0 +1,850 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Add-BerRecord</command:name>
+      <command:verb>Add</command:verb>
+      <command:noun>BerRecord</command:noun>
+      <maml:description>
+        <maml:para>Adds or updates a record to the server.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Adds or updates a record to the server.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Add-BerRecord</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>berUrl</maml:name>
+          <maml:Description>
+            <maml:para>The base URL to your BER server. Do not include api/record. That will be added by the functions. Just provide https://domain</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>clientId</maml:name>
+          <maml:Description>
+            <maml:para>This is used to get a JWT token. The BER server when deployed to Docker or App Service as a Web App requires authentication using JWT. The clientId is used to make sure the client is allowed to connect to the server.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>appName</maml:name>
+          <maml:Description>
+            <maml:para>The name of the appliction you want to work with.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>dataType</maml:name>
+          <maml:Description>
+            <maml:para>The type of data you want to retrieve.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>version</maml:name>
+          <maml:Description>
+            <maml:para>The version of the value to reterieve, add or update.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>value</maml:name>
+          <maml:Description>
+            <maml:para>The value to add or update to.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Add-BerRecord</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>berUrl</maml:name>
+          <maml:Description>
+            <maml:para>The base URL to your BER server. Do not include api/record. That will be added by the functions. Just provide https://domain</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>functionKey</maml:name>
+          <maml:Description>
+            <maml:para>This is used as the key for calling an Azure function.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>appName</maml:name>
+          <maml:Description>
+            <maml:para>The name of the appliction you want to work with.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>dataType</maml:name>
+          <maml:Description>
+            <maml:para>The type of data you want to retrieve.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>version</maml:name>
+          <maml:Description>
+            <maml:para>The version of the value to reterieve, add or update.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>value</maml:name>
+          <maml:Description>
+            <maml:para>The value to add or update to.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>berUrl</maml:name>
+        <maml:Description>
+          <maml:para>The base URL to your BER server. Do not include api/record. That will be added by the functions. Just provide https://domain</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>clientId</maml:name>
+        <maml:Description>
+          <maml:para>This is used to get a JWT token. The BER server when deployed to Docker or App Service as a Web App requires authentication using JWT. The clientId is used to make sure the client is allowed to connect to the server.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>functionKey</maml:name>
+        <maml:Description>
+          <maml:para>This is used as the key for calling an Azure function.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>appName</maml:name>
+        <maml:Description>
+          <maml:para>The name of the appliction you want to work with.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>dataType</maml:name>
+        <maml:Description>
+          <maml:para>The type of data you want to retrieve.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>version</maml:name>
+        <maml:Description>
+          <maml:para>The version of the value to reterieve, add or update.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>value</maml:name>
+        <maml:Description>
+          <maml:para>The value to add or update to.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Add-BerRecord -berUrl 'https://ber.test.com' -appName 'test' -version '1.0' -dataType 'api' -value 'testing'</dev:code>
+        <dev:remarks>
+          <maml:para>Adds a record to the server</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-BerRecord</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>BerRecord</command:noun>
+      <maml:description>
+        <maml:para>Returns the entire list of records or a particular record.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Returns the entire list of records or a particular record.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-BerRecord</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>berUrl</maml:name>
+          <maml:Description>
+            <maml:para>The base URL to your BER server. Do not include api/record. That will be added by the functions. Just provide https://domain</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>clientId</maml:name>
+          <maml:Description>
+            <maml:para>This is used to get and JWT token.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>appName</maml:name>
+          <maml:Description>
+            <maml:para>The name of the appliction you want to work with.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>dataType</maml:name>
+          <maml:Description>
+            <maml:para>The type of data you want to retrieve.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>version</maml:name>
+          <maml:Description>
+            <maml:para>The version of the value to reterieve.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-BerRecord</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>berUrl</maml:name>
+          <maml:Description>
+            <maml:para>The base URL to your BER server. Do not include api/record. That will be added by the functions. Just provide https://domain</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>clientId</maml:name>
+          <maml:Description>
+            <maml:para>This is used to get and JWT token.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-BerRecord</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>berUrl</maml:name>
+          <maml:Description>
+            <maml:para>The base URL to your BER server. Do not include api/record. That will be added by the functions. Just provide https://domain</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>functionKey</maml:name>
+          <maml:Description>
+            <maml:para>This is used as the key for calling an Azure function.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>appName</maml:name>
+          <maml:Description>
+            <maml:para>The name of the appliction you want to work with.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>dataType</maml:name>
+          <maml:Description>
+            <maml:para>The type of data you want to retrieve.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>version</maml:name>
+          <maml:Description>
+            <maml:para>The version of the value to reterieve.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-BerRecord</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>berUrl</maml:name>
+          <maml:Description>
+            <maml:para>The base URL to your BER server. Do not include api/record. That will be added by the functions. Just provide https://domain</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>functionKey</maml:name>
+          <maml:Description>
+            <maml:para>This is used as the key for calling an Azure function.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>berUrl</maml:name>
+        <maml:Description>
+          <maml:para>The base URL to your BER server. Do not include api/record. That will be added by the functions. Just provide https://domain</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>clientId</maml:name>
+        <maml:Description>
+          <maml:para>This is used to get and JWT token.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>functionKey</maml:name>
+        <maml:Description>
+          <maml:para>This is used as the key for calling an Azure function.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>appName</maml:name>
+        <maml:Description>
+          <maml:para>The name of the appliction you want to work with.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>dataType</maml:name>
+        <maml:Description>
+          <maml:para>The type of data you want to retrieve.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>version</maml:name>
+        <maml:Description>
+          <maml:para>The version of the value to reterieve.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-BerRecord -berUrl https://ber.test.com -clientId test</dev:code>
+        <dev:remarks>
+          <maml:para>This will return all the records in the server. The clientId is used to get a JWT token.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-BerRecord -berUrl https://ber.test.com -functionKey key -appName test -version 1.0 -dataType api</dev:code>
+        <dev:remarks>
+          <maml:para>This will return a single record with the specified version and dataType for the app. The functionKey must be used when calling an Azure Function.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Remove-BerRecord</command:name>
+      <command:verb>Remove</command:verb>
+      <command:noun>BerRecord</command:noun>
+      <maml:description>
+        <maml:para>Removes a record from the server.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Removes a record from the server.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Remove-BerRecord</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>berUrl</maml:name>
+          <maml:Description>
+            <maml:para>The base URL to your BER server. Do not include api/record. That will be added by the functions. Just provide https://domain</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>clientId</maml:name>
+          <maml:Description>
+            <maml:para>This is used to get a JWT token. The BER server when deployed to Docker or App Service as a Web App requires authentication using JWT. The clientId is used to make sure the client is allowed to connect to the server.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>appName</maml:name>
+          <maml:Description>
+            <maml:para>The name of the appliction you want to work with.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>dataType</maml:name>
+          <maml:Description>
+            <maml:para>The type of data you want to retrieve.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>version</maml:name>
+          <maml:Description>
+            <maml:para>The version of the value to reterieve, add or update.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Remove-BerRecord</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>berUrl</maml:name>
+          <maml:Description>
+            <maml:para>The base URL to your BER server. Do not include api/record. That will be added by the functions. Just provide https://domain</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>functionKey</maml:name>
+          <maml:Description>
+            <maml:para>This is used as the key for calling an Azure function.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>appName</maml:name>
+          <maml:Description>
+            <maml:para>The name of the appliction you want to work with.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>dataType</maml:name>
+          <maml:Description>
+            <maml:para>The type of data you want to retrieve.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>version</maml:name>
+          <maml:Description>
+            <maml:para>The version of the value to reterieve, add or update.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>berUrl</maml:name>
+        <maml:Description>
+          <maml:para>The base URL to your BER server. Do not include api/record. That will be added by the functions. Just provide https://domain</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>clientId</maml:name>
+        <maml:Description>
+          <maml:para>This is used to get a JWT token. The BER server when deployed to Docker or App Service as a Web App requires authentication using JWT. The clientId is used to make sure the client is allowed to connect to the server.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>functionKey</maml:name>
+        <maml:Description>
+          <maml:para>This is used as the key for calling an Azure function.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>appName</maml:name>
+        <maml:Description>
+          <maml:para>The name of the appliction you want to work with.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>dataType</maml:name>
+        <maml:Description>
+          <maml:para>The type of data you want to retrieve.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>version</maml:name>
+        <maml:Description>
+          <maml:para>The version of the value to reterieve, add or update.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Remove-BerRecord -berUrl https://ber.test.com -appName test -version 1.0 -dataType api -Force</dev:code>
+        <dev:remarks>
+          <maml:para>Removes a record from the server</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+</helpItems>

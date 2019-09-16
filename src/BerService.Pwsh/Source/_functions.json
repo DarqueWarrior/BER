@@ -1,0 +1,8 @@
+{
+   "outputFile": "Trackyon.Ber.functions.ps1",
+   "fileType": "functions",
+   "files": [
+      "./Private/*.ps1",
+      "./Public/*.ps1"
+   ]
+}

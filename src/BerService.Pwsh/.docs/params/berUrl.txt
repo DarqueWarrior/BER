@@ -1,0 +1,8 @@
+### -berUrl
+
+The base URL to your BER server. Do not include api/record. That will be added by the functions. Just provide https://domain
+
+```yaml
+Type: String
+Required: True
+```

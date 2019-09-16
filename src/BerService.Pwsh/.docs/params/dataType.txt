@@ -1,0 +1,8 @@
+### -dataType
+
+The type of data you want to retrieve.
+
+```yaml
+Type: String
+Required: True
+```

@@ -1,0 +1,117 @@
+# Deploy a Function App and deploy to Azure App Service
+
+# You must add a protected variable named administratorLoginPassword with the 
+# password for your database to the build defintion.
+# Create or edit the build pipeline for this YAML file, define the variable on 
+# the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+
+# You must add a Azure Service Connection named AzureConnection
+# See https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints
+
+trigger:
+- master
+
+resources:
+- repo: self
+
+variables:
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+  azureSubscription: 'AzureConnection'
+  resourceGroupName: 'berfunc'
+  location: 'East US 2'
+  administratorLogin: 'beruser'
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '2.2.301'
+    - task: DotNetCoreCLI@2
+      displayName: Test
+      inputs:
+        command: 'test'
+        projects: './src/BerService.Tests/BerService.Tests.csproj'
+        arguments: '--configuration Release --filter "Category=FunctionTests"'
+    - task: DotNetCoreCLI@2
+      displayName: Publish Service
+      inputs:
+        command: 'publish'
+        publishWebProjects: false
+        projects: './src/BerService.FunctionApp/BerService.FunctionApp.csproj'
+        arguments: '--configuration Release --output $(Build.ArtifactStagingDirectory)/service'
+        workingDirectory: './src/BerService.FunctionApp'
+    - task: CopyFiles@2
+      displayName: Copy IaC files
+      inputs:
+        SourceFolder: 'src/BerService.IaC'
+        Contents: '*.json'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/iac'
+    - task: PublishPipelineArtifact@1
+      displayName: Publish IaC Files
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)/iac'
+        artifact: 'iac'
+    - task: PublishPipelineArtifact@1
+      displayName: Publish Zip Files
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)/service'
+        artifact: 'service'
+
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      # name: Default
+      vmImage: $(vmImageName)
+    environment: 'Ber'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadPipelineArtifact@2
+            displayName: 'Download Artfacts'
+            inputs:
+              buildType: 'current'
+              targetPath: '$(Pipeline.Workspace)'
+          - task: AzureResourceGroupDeployment@2
+            displayName: 'Deploy Infra'
+            inputs:
+              azureSubscription: '$(azureSubscription)'
+              action: 'Create Or Update Resource Group'
+              resourceGroupName: '$(resourceGroupName)'
+              location: '$(location)'
+              templateLocation: 'Linked artifact'
+              csmFile: '$(Pipeline.Workspace)/iac/FunctionSQLDatabase.json'
+              overrideParameters: '-administratorLogin $(administratorLogin) -administratorLoginPassword $(administratorLoginPassword)'
+              deploymentMode: 'Incremental'
+              deploymentOutputs: 'iac'
+          - task: PowerShell@2
+            displayName: 'Parse Function Name'
+            inputs:
+              targetType: 'inline'
+              script: |
+                $var=ConvertFrom-Json '$(iac)'
+                $value=$var.functionName.value
+                Write-Host "##vso[task.setvariable variable=functionName;]$value"
+          - task: AzureRmWebAppDeployment@4
+            displayName: 'Deploy Function'
+            inputs:
+              ConnectionType: 'AzureRM'
+              azureSubscription: '$(azureSubscription)'
+              appType: 'functionApp'
+              WebAppName: '$(functionName)'
+              packageForLinux: '$(Pipeline.Workspace)/**/*.zip'
+              enableCustomDeployment: true
+              DeploymentType: 'zipDeploy'

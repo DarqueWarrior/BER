@@ -1,0 +1,9 @@
+### -functionKey
+
+This is used as the key for calling an Azure function.
+
+```yaml
+Type: String
+Required: True
+Parameter Sets: ByFunctionKey
+```

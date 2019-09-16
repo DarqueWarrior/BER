@@ -1,0 +1,8 @@
+### -appName
+
+The name of the appliction you want to work with.
+
+```yaml
+Type: String
+Required: True
+```

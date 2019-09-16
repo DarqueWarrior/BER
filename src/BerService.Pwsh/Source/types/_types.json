@@ -1,0 +1,7 @@
+{
+   "outputFile": "Trackyon.Ber.types.ps1xml",
+   "fileType": "types",
+   "files": [
+      "*.ps1xml"
+   ]
+}
