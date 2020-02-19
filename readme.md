@@ -47,6 +47,8 @@ This repo contains following:
 
 1. Create an [Azure Resource Manager service connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints) named **AzureConnection**.
 
+1. In Azure, create an Azure Resource Group named **berfunc**.
+
 1. In your project, navigate to the **Pipelines** page. Then choose the action to create a new pipeline.
 
 1. Walk through the steps of the wizard by first selecting **GitHub** as the location of your source code.
@@ -97,6 +99,8 @@ Add-BerRecord -functionKey $(functionKey) -berUrl $(functionUrl) -appName $(appN
 1. Sign in to your Azure DevOps organization and navigate to your project.
 
 1. Create an [Azure Resource Manager service connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints) named **AzureConnection**.
+
+1. In Azure, create an Azure Resource Group named **berblog**.
 
 1. In your project, navigate to the **Pipelines** page. Then choose the action to create a new pipeline.
 
