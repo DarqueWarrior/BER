@@ -8,17 +8,17 @@ The purpose of the service to update the back end URL of a mobile application wi
 
 This repo contains following:
 
-* BER Service Azure App Service Application with [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/pipelines) Pipeline
+* BER Service Azure App Service Application with [Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines?WT.mc_id=devops-0000-dbrown) Pipeline
   * Azure App Service, WebApp, BER Service implementation
   * YAML based Azure DevOps CI/CD pipeline
 * BER Service Client Library
   * Shared between the Azure Function and Azure WebApp implementations.
 * BER Service Data Access Layer using Entity Framework
   * Shared between the Azure Function and Azure WebApp implementations.
-* BER Service Azure Function App with [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/pipelines) Pipeline
+* BER Service Azure Function App with [Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines?WT.mc_id=devops-0000-dbrown) Pipeline
   * Azure Function App, BER Service implementation
   * YAML based Azure DevOps CI/CD pipeline
-* BER Service [Azure Resource Manager Templates](https://docs.microsoft.com/en-us/azure/templates/)
+* BER Service [Azure Resource Manager Templates](https://docs.microsoft.com/azure/templates/?WT.mc_id=devops-0000-dbrown)
   * Infrastructure as Code for both WebApp and Azure Function
   * Azure Resource Manager Templates
 * BER Service Model Library
@@ -37,7 +37,7 @@ This repo contains following:
 
 * An Azure DevOps organization. If you do not have one, you can [create one for free](../get-started/pipelines-sign-up.md). (An Azure DevOps organization is different from your GitHub organization. Give them the same name if you want alignment between them.)
 
-* An Azure account. If you do not have one, you can [create one for free](https://azure.microsoft.com/free/).
+* An Azure account. If you do not have one, you can [create one for free](https://azure.microsoft.com/free/?WT.mc_id=devops-0000-dbrown).
 
 ## Deploy the Service as Azure Function
 
@@ -45,7 +45,7 @@ This repo contains following:
 
 1. Sign in to your Azure DevOps organization and navigate to your project.
 
-1. Create an [Azure Resource Manager service connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints) named **AzureConnection**.
+1. Create an [Azure Resource Manager service connection](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints?WT.mc_id=devops-0000-dbrown) named **AzureConnection**.
 
 1. In your project, navigate to the **Pipelines** page. Then choose the action to create a new pipeline.
 
@@ -63,7 +63,7 @@ This repo contains following:
 
 1. Select **Run**. Once the pipeline is complete you will have a BER Service deployed into an Azure Function.
 
-1. From the function app get the [URL and default key](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook#authorization-keys). 
+1. From the function app get the [URL and default key](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?WT.mc_id=devops-0000-dbrown#authorization-keys). 
 
 ## Using the Service
 
@@ -96,7 +96,7 @@ Add-BerRecord -functionKey $(functionKey) -berUrl $(functionUrl) -appName $(appN
 
 1. Sign in to your Azure DevOps organization and navigate to your project.
 
-1. Create an [Azure Resource Manager service connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints) named **AzureConnection**.
+1. Create an [Azure Resource Manager service connection](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints?WT.mc_id=devops-0000-dbrown) named **AzureConnection**.
 
 1. In your project, navigate to the **Pipelines** page. Then choose the action to create a new pipeline.
 
